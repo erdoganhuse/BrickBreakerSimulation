@@ -1,6 +1,7 @@
 using System;
 using Library.PhysicsEngine.Data;
 using Library.PhysicsEngine.Utilities;
+using Library.Utilities;
 using UnityEngine;
 
 namespace Library.PhysicsEngine.Rigidbody
@@ -75,7 +76,7 @@ namespace Library.PhysicsEngine.Rigidbody
         public void ApplyImpulse(Vector2 impulse, Vector2 contact)
         {
             Velocity += (InverseMass * impulse);
-            AngularVelocity += InverseInertia * Vector2Ext.Cross(contact, impulse);
+            AngularVelocity += InverseInertia * Vector2Helper.Cross(contact, impulse);
         }
         
         public void SetStatic()

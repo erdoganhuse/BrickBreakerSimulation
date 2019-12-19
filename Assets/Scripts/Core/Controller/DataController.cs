@@ -1,7 +1,5 @@
 using Core.Data.Config;
 using Library.CoroutineSystem;
-using Library.DependencyInjection;
-using Library.Patterns.Singleton;
 using Library.SignalBusSystem;
 using Signals;
 using UnityEngine;

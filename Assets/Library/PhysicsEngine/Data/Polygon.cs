@@ -24,24 +24,18 @@ namespace Library.PhysicsEngine.Data
                         Normals[i] = new Vector2(face.y, -face.x).normalized;
                     }
                 }
-
                 return _normals;
             }
         }
         
-        private Mat2? _orientation;
-        public Mat2 Orientation
+        private Matrix2x2? _orientation;
+        public Matrix2x2 Orientation
         {
             get
             {
-                if(_orientation == null) _orientation = new Mat2(transform.eulerAngles.z * Mathf.Deg2Rad);
+                if(_orientation == null) _orientation = new Matrix2x2(transform.eulerAngles.z * Mathf.Deg2Rad);
                 return _orientation.Value;
             }
-        }
-        
-        public override Shape Clone()
-        {
-            return Instantiate(this);
         }
 
         public override void Initialize()  { }

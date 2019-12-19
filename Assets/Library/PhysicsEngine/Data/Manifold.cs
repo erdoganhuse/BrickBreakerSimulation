@@ -1,6 +1,8 @@
 using System;
+using Library.PhysicsEngine.Collision;
 using Library.PhysicsEngine.Core;
 using Library.PhysicsEngine.Utilities;
+using Library.Utilities;
 using UnityEngine;
 
 namespace Library.PhysicsEngine.Data
@@ -42,7 +44,7 @@ namespace Library.PhysicsEngine.Data
                 Vector2 ra = Contacts[i] - (Vector2)A.transform.position;
                 Vector2 rb = Contacts[i] - (Vector2)B.transform.position;
 
-                Vector2 rv = B.Velocity + Vector2Ext.Cross(B.AngularVelocity, rb) - A.Velocity - Vector2Ext.Cross(A.AngularVelocity, ra);
+                Vector2 rv = B.Velocity + Vector2Helper.Cross(B.AngularVelocity, rb) - A.Velocity - Vector2Helper.Cross(A.AngularVelocity, ra);
 
                 if (rv.sqrMagnitude - (Core.PhysicsEngine.DeltaTime * Core.PhysicsEngine.Gravity).sqrMagnitude < Mathf.Epsilon)
                 {
@@ -73,8 +75,8 @@ namespace Library.PhysicsEngine.Data
                     return;
                 }
                 
-                float raCrossN = Vector2Ext.Cross( ra, Normal);
-                float rbCrossN = Vector2Ext.Cross( rb, Normal);
+                float raCrossN = Vector2Helper.Cross( ra, Normal);
+                float rbCrossN = Vector2Helper.Cross( rb, Normal);
                 float invMassSum = A.InverseMass + B.InverseMass + (raCrossN * raCrossN) * A.InverseInertia + (rbCrossN * rbCrossN) * B.InverseInertia;
 
                 
@@ -87,7 +89,7 @@ namespace Library.PhysicsEngine.Data
                 A.ApplyImpulse(-1f * impulse, ra);
                 B.ApplyImpulse(impulse, rb);
                 
-                rv = B.Velocity + Vector2Ext.Cross(B.AngularVelocity, rb) - A.Velocity - Vector2Ext.Cross(A.AngularVelocity, ra);
+                rv = B.Velocity + Vector2Helper.Cross(B.AngularVelocity, rb) - A.Velocity - Vector2Helper.Cross(A.AngularVelocity, ra);
                 
                 Vector2 t = rv - (Normal * Vector2.Dot(rv, Normal));
                 t = t.normalized;
@@ -118,7 +120,7 @@ namespace Library.PhysicsEngine.Data
         
         public void Solve()
         {
-            CollisionSolver.HandleCollision(ref this, A, B);
+            CollisionHandleProcessor.Handle(ref this, A, B);
         }
         
         public void PositionalCorrection()

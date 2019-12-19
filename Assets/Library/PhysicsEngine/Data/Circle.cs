@@ -8,11 +8,6 @@ namespace Library.PhysicsEngine.Data
     {
         public float Radius;
 
-        public override Shape Clone()
-        {
-            return Instantiate(this);
-        }
-
         public override void Initialize() { }
 
         public override void SetOrient(float radians) { }

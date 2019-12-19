@@ -10,9 +10,7 @@ namespace Library.PhysicsEngine.Data
     public abstract class Shape : MonoBehaviour
     {
         public CollisionEvent OnCollisionEnter;
-        
-        public abstract Shape Clone();
-        
+
         public abstract void Initialize();
 
         public abstract void SetOrient( float radians );

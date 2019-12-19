@@ -5,8 +5,8 @@
         "gameAreaHeight": 50,
         "numBricksToSpawn": 50,
         "minBrickLife": 1,
-        "maxBrickLife": 1,
-        "ballSpeed": 50,
+        "maxBrickLife": 5,
+        "ballSpeed": 10,
         "noHitsTimeout": 120
     }
 }

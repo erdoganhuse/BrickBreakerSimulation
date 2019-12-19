@@ -56,8 +56,6 @@ namespace Library.SignalBusSystem
                         
             if (Instance._listenersWithParams[typeof(T)].All(item => item.Method != listener.Method)) return;
 
-            Debug.Log("");
-            
             Instance._listenersWithParams[typeof(T)].All(item => item.Method == listener.Method);
         }
 

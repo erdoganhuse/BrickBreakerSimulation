@@ -1,64 +1,36 @@
-using System;
 using Library.PhysicsEngine.Data;
 using UnityEngine;
 
-namespace Library.PhysicsEngine.Core
+namespace Library.PhysicsEngine.Collision
 {
-    public static class CollisionSolver
+    public class CircleVsPolygonHandler : ICollisionHandler
     {
-        public static void HandleCollision(ref Manifold manifold, Rigidbody.Rigidbody a, Rigidbody.Rigidbody b)
+        public bool CanHandle(Shape a, Shape b)
         {
-            if (a.Shape.GetType() == typeof(Circle) && b.Shape.GetType() == typeof(Circle))
-            {
-                CircleToCircle(ref manifold, a, b);
-            }
-            else if (a.Shape.GetType() == typeof(Polygon) && b.Shape.GetType() == typeof(Circle))
-            {
-                PolygonToCircle(ref manifold, a, b);
-            }            
-            else if (a.Shape.GetType() == typeof(Circle) && b.Shape.GetType() == typeof(Polygon))
-            {
-	            CircleToPolygon(ref manifold, a, b);
-            }
+            return (a.GetType() == typeof(Circle) && b.GetType() == typeof(Polygon)) ||
+                   (a.GetType() == typeof(Polygon) && b.GetType() == typeof(Circle));
         }
 
-        private static void CircleToCircle(ref Manifold manifold, Rigidbody.Rigidbody a, Rigidbody.Rigidbody b)
+        public void Handle(ref Manifold manifold, Rigidbody.Rigidbody a, Rigidbody.Rigidbody b)
         {
-            Circle A = (Circle)a.Shape;
-            Circle B = (Circle)b.Shape;
+	        if (a.Shape.GetType() == typeof(Circle) && b.Shape.GetType() == typeof(Polygon))
+	        {
+		        AbsoluteHandler(ref manifold, a, b);
+	        }            
+	        else if (a.Shape.GetType() == typeof(Polygon) && b.Shape.GetType() == typeof(Circle))
+	        {
+		        AbsoluteHandler(ref manifold, b, a);
 
-            Vector2 normal = b.transform.position - a.transform.position;
-
-            float distance = normal.magnitude;
-            float radius = A.Radius + B.Radius;
-
-            if (distance >= radius)
-            {
-                manifold.ContactCount = 0;
-                return;
-            }
-
-            manifold.ContactCount = 1;
-            manifold.Contacts = new Vector2[manifold.ContactCount];
-            
-            if (Math.Abs(distance) < Mathf.Epsilon)
-            {
-                manifold.Penetration = A.Radius;
-                manifold.Normal = new Vector2( 1.0f, 0.0f );
-                
-                manifold.Contacts[0] = a.transform.position;
-            }
-            else
-            {
-                manifold.Penetration = radius - distance;
-                manifold.Normal = normal / distance;
-                manifold.Contacts[0] = manifold.Normal * A.Radius + (Vector2)a.transform.position;
-            }
+		        if (manifold.ContactCount > 0)
+		        {
+			        manifold.Normal = -manifold.Normal;
+		        }
+	        }
         }
 
-	    private static void CircleToPolygon(ref Manifold manifold, Rigidbody.Rigidbody a, Rigidbody.Rigidbody b)
-	    {
-		    Circle A = (Circle) a.Shape;
+        private void AbsoluteHandler(ref Manifold manifold, Rigidbody.Rigidbody a, Rigidbody.Rigidbody b)
+        {
+			Circle A = (Circle) a.Shape;
 		    Polygon B = (Polygon) b.Shape;
 
 		    manifold.ContactCount = 0;
@@ -128,16 +100,6 @@ namespace Library.PhysicsEngine.Core
 			    manifold.Contacts = new Vector2[manifold.ContactCount];
 			    manifold.Contacts[0] = manifold.Normal * A.Radius + (Vector2)a.transform.position;
 		    }
-	    }
-
-	    private static void PolygonToCircle(ref Manifold manifold, Rigidbody.Rigidbody a, Rigidbody.Rigidbody b)
-        {
-	        CircleToPolygon(ref manifold, b, a);
-
-	        if (manifold.ContactCount > 0)
-	        {
-		        manifold.Normal = -manifold.Normal;
-	        }
         }
     }
 }

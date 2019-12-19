@@ -29,13 +29,17 @@ namespace Core.Controller
         {
             return Mathf.Max(width * SizeMultiplierForWidth, height * SizeMultiplierForHeight);
         }
-        
+
+        #region Signal Listeners
+
         private void OnGameAreaCreated(GameAreaCreatedSignal gameAreaCreatedSignal)
         {
             _camera.orthographicSize = GetOrthographicSize(gameAreaCreatedSignal.GameArea.Size.x,
                 gameAreaCreatedSignal.GameArea.Size.y);
             
             _camera.transform.SetPosY(_camera.orthographicSize * PositionMultiplierByY);
-        }        
+        }
+
+        #endregion        
     }
 }

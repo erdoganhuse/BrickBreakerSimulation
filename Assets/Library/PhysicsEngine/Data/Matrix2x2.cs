@@ -2,18 +2,18 @@ using UnityEngine;
 
 namespace Library.PhysicsEngine.Data
 {
-	public struct Mat2
+	public struct Matrix2x2
 	{
 		public float m00, m01;
 		public float m10, m11;
 		
-		public Mat2(float radians)
+		public Matrix2x2(float radians)
 		{
 			m00 = m01 = m10 = m11 = 0f;
 			Set(radians);
 		}
 
-		public Mat2(float a, float b, float c, float d)
+		public Matrix2x2(float a, float b, float c, float d)
 		{
 			m00 = m01 = m10 = m11 = 0f;
 			Set(a, b, c, d);
@@ -38,7 +38,7 @@ namespace Library.PhysicsEngine.Data
 			m11 = d;
 		}
 
-		public void Set(Mat2 m)
+		public void Set(Matrix2x2 m)
 		{
 			m00 = m.m00;
 			m01 = m.m01;
@@ -46,9 +46,9 @@ namespace Library.PhysicsEngine.Data
 			m11 = m.m11;
 		}
 
-		public Mat2 Abs()
+		public Matrix2x2 Abs()
 		{
-			return new Mat2(Mathf.Abs(m00), Mathf.Abs(m01), Mathf.Abs(m10), Mathf.Abs(m11));
+			return new Matrix2x2(Mathf.Abs(m00), Mathf.Abs(m01), Mathf.Abs(m10), Mathf.Abs(m11));
 		}
 
 		public Vector2 GetAxisX()
@@ -61,9 +61,9 @@ namespace Library.PhysicsEngine.Data
 			return new Vector2(m01, m11);
 		}
 
-		public Mat2 Transpose()
+		public Matrix2x2 Transpose()
 		{
-			return new Mat2(m00, m10, m01, m11);
+			return new Matrix2x2(m00, m10, m01, m11);
 		}
 
 		public Vector2 Multiply(Vector2 v)
@@ -76,9 +76,9 @@ namespace Library.PhysicsEngine.Data
 			return new Vector2(m00 * x + m01 * y, m10 * x + m11 * y);
 		}
 
-		public Mat2 Multiply(Mat2 x)
+		public Matrix2x2 Multiply(Matrix2x2 x)
 		{
-			return new Mat2(
+			return new Matrix2x2(
 				m00 * x.m00 + m01 * x.m10,
 				m00 * x.m01 + m01 * x.m11,
 				m10 * x.m00 + m11 * x.m10,
