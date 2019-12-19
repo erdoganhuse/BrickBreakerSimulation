@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Huseyin\.Rider2018.2\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\Huseyin\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Huseyin\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_BeeSquareGames_ProgrammingTest.-1117235656.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Huseyin\Desktop\BeeSquareGames_ProgrammingTest\BeeSquareGames_ProgrammingTest" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Library" t="Include">
+          <e p="CoroutineSystem" t="Include">
+            <e p="CoroutineManager.cs" t="Include" />
+          </e>
+          <e p="DependencyInjection" t="Include">
+            <e p="IInjectable.cs" t="Include" />
+            <e p="Injection.cs" t="Include" />
+            <e p="Utilities.cs" t="Include" />
+          </e>
+          <e p="extensions" t="Include">
+            <e p="TransformExtensionMethods.cs" t="Include" />
+            <e p="Vector3ExtensionMethods.cs" t="Include" />
+          </e>
+          <e p="Patterns" t="Include">
+            <e p="ObjectPool" t="Include">
+              <e p="GenericPool.cs" t="Include" />
+            </e>
+            <e p="Singleton" t="Include">
+              <e p="MonoSingleton.cs" t="Include" />
+            </e>
+          </e>
+          <e p="PhysicsEngine" t="Include">
+            <e p="Core" t="Include">
+              <e p="CollisionSolver.cs" t="Include" />
+              <e p="PhysicsEngine.cs" t="Include" />
+            </e>
+            <e p="Data" t="Include">
+              <e p="Circle.cs" t="Include" />
+              <e p="Manifold.cs" t="Include" />
+              <e p="Mat2.cs" t="Include" />
+              <e p="Polygon.cs" t="Include" />
+              <e p="Shape.cs" t="Include" />
+            </e>
+            <e p="Rigidbody" t="Include">
+              <e p="Rigidbody.cs" t="Include" />
+            </e>
+            <e p="Utilities" t="Include">
+              <e p="Constants.cs" t="Include" />
+              <e p="Vector2Ext.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ServiceLocatorSystem" t="Include">
+            <e p="BaseInstaller.cs" t="Include" />
+            <e p="ServiceLocator.cs" t="Include" />
+          </e>
+          <e p="SignalBusSystem" t="Include">
+            <e p="ISignal.cs" t="Include" />
+            <e p="SignalBus.cs" t="Include" />
+          </e>
+          <e p="Utilities" t="Include">
+            <e p="Vector2Helper.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Data" t="Include">
+            <e p="data.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Sandbox" t="Include">
+          <e p="TestScript.cs" t="Include" />
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Core" t="Include">
+            <e p="Controller" t="Include">
+              <e p="BallLauncher.cs" t="Include" />
+              <e p="BoardController.cs" t="Include" />
+              <e p="BrickSpawner.cs" t="Include" />
+              <e p="CameraController.cs" t="Include" />
+              <e p="DataController.cs" t="Include" />
+              <e p="GameController.cs" t="Include" />
+              <e p="PlayerInputController.cs" t="Include" />
+              <e p="SceneController.cs" t="Include" />
+              <e p="Simulation" t="Include">
+                <e p="ISimulationFinisher.cs" t="Include" />
+                <e p="SimulationController.cs" t="Include" />
+                <e p="SimulationFinishCalculator.cs" t="Include" />
+              </e>
+              <e p="UiController.cs" t="Include" />
+            </e>
+            <e p="Data" t="Include">
+              <e p="Board" t="Include">
+                <e p="GameArea.cs" t="Include" />
+              </e>
+              <e p="config" t="Include">
+                <e p="Config.cs" t="Include" />
+                <e p="GameConfig.cs" t="Include" />
+              </e>
+              <e p="Simulation" t="Include">
+                <e p="BrickData.cs" t="Include" />
+                <e p="SimulationData.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Logic" t="Include">
+              <e p="Ball" t="Include">
+                <e p="Ball.cs" t="Include" />
+              </e>
+              <e p="Brick" t="Include">
+                <e p="Brick.cs" t="Include" />
+              </e>
+            </e>
+            <e p="UI" t="Include">
+              <e p="Screen" t="Include">
+                <e p="BaseScreen.cs" t="Include" />
+                <e p="EndScreen.cs" t="Include" />
+                <e p="InGameScreen.cs" t="Include" />
+              </e>
+              <e p="View" t="Include">
+                <e p="DestructionProgressView.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Helper" t="Include">
+            <e p="Layout" t="Include">
+              <e p="WorldGridLayout.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Installers" t="Include">
+            <e p="GameInstaller.cs" t="Include" />
+            <e p="LoaderInstaller.cs" t="Include" />
+          </e>
+          <e p="Signals" t="Include">
+            <e p="BallCollidedWithBrickSignal.cs" t="Include" />
+            <e p="BallLifetimeEndedSignal.cs" t="Include" />
+            <e p="BrickDestructedSignal.cs" t="Include" />
+            <e p="GameAreaCreatedSignal.cs" t="Include" />
+            <e p="GameConfigLoadedSignal.cs" t="Include" />
+            <e p="GameStartedSignal.cs" t="Include" />
+            <e p="SceneReadySignal.cs" t="Include" />
+            <e p="SimulationCreatedSignal.cs" t="Include" />
+            <e p="SimulationEndedSignal.cs" t="Include" />
+            <e p="SimulationLoadedSignal.cs" t="Include" />
+            <e p="SimulationSavedSignal.cs" t="Include" />
+            <e p="SimulationStartedSignal.cs" t="Include" />
+          </e>
+          <e p="Utilities" t="Include">
+            <e p="Constants" t="Include">
+              <e p="SceneNames.cs" t="Include" />
+              <e p="Tags.cs" t="Include" />
+            </e>
+            <e p="Enums" t="Include">
+              <e p="Anchor.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="BeeSquareGames_ProgrammingTest.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

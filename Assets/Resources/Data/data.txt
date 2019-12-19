@@ -1,0 +1,12 @@
+{
+    "GameConfig":
+    {
+        "gameAreaWidth": 50,
+        "gameAreaHeight": 50,
+        "numBricksToSpawn": 50,
+        "minBrickLife": 1,
+        "maxBrickLife": 1,
+        "ballSpeed": 50,
+        "noHitsTimeout": 120
+    }
+}
